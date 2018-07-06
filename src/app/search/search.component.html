@@ -1,0 +1,36 @@
+
+<div class="input-group mb-3">
+    <input type="text" class="form-control" placeholder="Enter query" aria-label="Search" aria-describedby="basic-addon2"
+         #newquery
+         [value]="query"
+         (keydown.enter)="submit(newquery.value)">
+  <div class="input-group-append">
+    <button class="btn btn-outline-secondary" type="button" (click)="submit(newquery.value)">Search</button>
+  </div>
+</div>
+
+
+<div *ngIf="results">
+  <div *ngIf="!results.length">
+    No task were found with the term '{{ query }}'
+  </div>
+
+  <div *ngIf="results.length">
+    <h5>Search results</h5>
+
+    <div class="row">
+      <div class="col-sm-6 col-md-4" *ngFor="let t of results">
+        <div class="thumbnail">
+          <div class="content">
+            <div class="caption">
+              <p>
+                <a [routerLink]="['/bugs', t.id]"> {{ t.title }} </a>
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
