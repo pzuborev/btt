@@ -14,6 +14,7 @@ import {
 import { IssueComponent } from './issue/issue.component';
 import { SearchComponent } from './search/search.component';
 import {APP_BASE_HREF, HashLocationStrategy, LocationStrategy} from '@angular/common';
+import { OcticonDirective } from './octicon.directive';
 
 
 const routes: Routes = [
@@ -26,7 +27,8 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     IssueComponent,
-    SearchComponent
+    SearchComponent,
+    OcticonDirective
   ],
   imports: [
     BrowserModule,

@@ -1,11 +1,24 @@
 
 <div class="input-group mb-3">
+
+  <div class="input-group-prepend">
+    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <span appOctIcon octicon="gear" width="100"></span>
+      <span class="caret"></span></button>
+
+    <ul class="dropdown-menu btn-sm">
+      <li><input type="checkbox" checked #inTitle/>Title</li>
+      <li><input type="checkbox" checked #inDescription/>Description</li>
+      <li><input type="checkbox"         #inComments/>Comments</li>
+    </ul>
+  </div>
+
     <input type="text" class="form-control" placeholder="Enter query" aria-label="Search" aria-describedby="basic-addon2"
          #newquery
          [value]="query"
-         (keydown.enter)="submit(newquery.value)">
+         (keydown.enter)="submit(newquery.value,inTitle.checked,inDescription.checked,inComments.checked)">
   <div class="input-group-append">
-    <button class="btn btn-outline-secondary" type="button" (click)="submit(newquery.value)">Search</button>
+    <button class="btn btn-outline-secondary" type="button" (click)="submit(newquery.value,inTitle.checked,inDescription.checked,inComments.checked)">Search</button>
   </div>
 </div>
 

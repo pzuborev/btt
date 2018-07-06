@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {IssueService} from '../issue.service';
+import * as octicons from 'octicons';
 
 @Component({
   selector: 'app-search',
@@ -24,7 +25,10 @@ export class SearchComponent implements OnInit {
     this.search();
   }
 
-  submit(query: string): void {
+  submit(query: string, inTitle, inDescription, inComments: Boolean): void {
+
+    console.log('inTitle = ' + inTitle + ' inDescription = ' + inDescription + ' inComments = ' + inComments );
+
     this.router.navigate(['search'], { queryParams: { query: query } })
       .then(_ => this.search() );
   }
